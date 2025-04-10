@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Phantoms Better Trucking</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+</head>
+<body>
+  <div id="loginSection">
+    <input type="email" id="email" placeholder="Email" />
+    <input type="password" id="password" placeholder="Password" />
+    <button onclick="loginUser()">Login</button>
+    <button onclick="registerUser()">Register</button>
+  </div>
+
+  <div id="appSection" class="hidden">
+    <p>Welcome, <span id="userEmailDisplay"></span></p>
+    <button onclick="logoutUser()">Logout</button>
+    <input type="text" id="displayName" placeholder="Name" />
+    <button onclick="updateProfile()">Update Profile</button>
+    <p id="profileMessage" class="hidden">Profile Updated!</p>
+
+    <div>
+      <input id="start" placeholder="Start address" />
+      <input id="end" placeholder="End address" />
+      <div id="stopsContainer"></div>
+      <button onclick="addStop()">Add Stop</button>
+      <input type="number" id="speed" placeholder="Speed (ms)" />
+      <button onclick="planRouteAndStart()">Plan Route</button>
+    </div>
+
+    <div id="navigationScreen" class="hidden">
+      <progress id="progressBar" value="0"></progress>
+      <button onclick="cancelNavigation()">Cancel Navigation</button>
+      <div id="map" style="width:100%;height:400px;"></div>
+    </div>
+
+    <h2>Trip History</h2>
+    <div id="historyContainer"></div>
+  </div>
+
+  <script src="main.js"></script>
+  <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAWHa-yPnuJ9FNtYOTe1C7ljD4Zo-HgMcw&libraries=places">
+  </script>
+</body>
+</html>
